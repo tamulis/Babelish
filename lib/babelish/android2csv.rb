@@ -10,7 +10,7 @@ module Babelish
       strings = {}
       xml_file = File.open(strings_filename)
 
-      parser = Nokogiri::XML(xml_file) do |config|
+      parser = Nokogiri::XML(xml_file, nil, "UTF-8") do |config|
         config.strict.noent
       end
       parser.xpath("//string").each do |node|
